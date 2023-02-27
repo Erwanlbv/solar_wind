@@ -389,9 +389,8 @@ score_types = [
 # -----------------------------------------------------------------------------
 
 
-def get_cv(X, y):
+def get_cv(X, y, k=5):
     # using 5 folds as default
-    k = 5
     # up to 10 fold cross-validation based on 5 splits, using two parts for
     # testing in each fold
     n_splits = 5

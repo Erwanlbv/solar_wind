@@ -1,0 +1,68 @@
+Un évènement correspond juste à des changements de comportements de ce que est capté par les 
+capteurs, pas d'un orage solaire.
+Lorsqu'on change d'évènement cela ne signifie pas qu'il y a une tempête solaire, en revanche il y a de forte chance 
+pour qu'un tempête solaire fasse changer d'évènement. (Pour autant ce n'est pas toujours le cas,
+voir image enregistrée).
+
+
+Utiliser les colunnes les plus corrélées avec les tempêtes
+solaires ne semblent pas donner de bon résultats
+dans le cadre du modèle de base donné par 
+le hackathon.
+
+Nécessaire d'utiliser le StandardScaler ? (Écrase les variations...)
+
+On considère qu'il existe une autre manière de savoir si un orage solaire a eu lien 
+ou non (traitement d'image), et que l'on connait le temps de propagation des 
+différents éléments mesurés (photon, champ magnétique) donc que nous sommes
+en mesure de les relier précisemment (temporellement) à ce que capte le satellite.
+Ce que l'on observe correspond donc à ce qui s'est passé à la surface du soleil lors de 
+la tempête ou non.
+
+
+Valeur efficace définie comme https://fr.wikipedia.org/wiki/Valeur_efficace (expression intégrale)
+Discrétisation dans notre cas donc, mais quel pas de temps pris ?
+
+Conservation :
+- B_i_rmx
+
+Ne pas prédire à l'instant t
+Considérer les valeurs avant et après, et attribuer des labels après coup
+
+
+Si Vth est très bas sur un intervalle (comparé au intervalle autour) -> forte 
+chance pour l'éruption solaire.
+Durée de l'intervalle où la valeur faible -> Importe 
+Parfois Vth "grande" sans éruption solaire -> Quels autres paramètres impactent ?
+
+Idem pour Beta (dans le sens est une constante longtemps)
+
+RmsBob -> constante également
+
+Regarde une vidéo sur les ICMEs
+
+
+# DISTRIBUTION DES VARIABLES SELON TEMPÊTE OU non
+
+- Variables Range F 
+    Note : La variable frange F 14 étant nulle partout elle n'est pas prise
+    en compte
+
+Candidats à la discrimination :
+F 3 (valeurs tempête plus importante)
+
+
+Pas de discrimination :
+F 1
+F 2
+F 4 
+F 5
+F 6 
+F 7
+F 8
+F 9
+F 10
+F 11
+F 12 
+F 13
+

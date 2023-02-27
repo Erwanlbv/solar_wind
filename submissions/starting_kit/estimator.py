@@ -55,4 +55,5 @@ def compute_rolling_std(X_df, feature, time_window, center=False):
     X_df[name] = X_df[feature].rolling(time_window, center=center).std()
     X_df[name] = X_df[name].ffill().bfill()
     X_df[name] = X_df[name].astype(X_df[feature].dtype)
+  
     return X_df
