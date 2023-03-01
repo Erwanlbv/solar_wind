@@ -43,7 +43,6 @@ def plot_event(start, end, data, labels, delta=36, figsize=(10, 60)):
     return fig, axes
     
 
-
 def multiple_plots(data, labels, n_events, events, delta=36, random_state=1, figsize=(10, 60)):
     """
     Plot multiples events using the plot_event function.
@@ -75,6 +74,7 @@ def display_timeline(data, labels):
     ax.axhline(y=data.mean(), color='g', label='Valeur moyenne')
 
     ax.legend()
+
 
 def show_densities(data_with_labels, thresh_data_with_labels=None):
     """

@@ -1,6 +1,8 @@
 from sklearn.base import BaseEstimator
+from sklearn.preprocessing import StandardScaler
+
 from sklearn.pipeline import make_pipeline
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import HistGradientBoostingClassifier
 
 
 class FeatureExtractor(BaseEstimator):
@@ -9,13 +11,15 @@ class FeatureExtractor(BaseEstimator):
         return self
 
     def transform(self, X):
-        return compute_rolling_std(X, 'Beta', '2h')
+        return compute_rolling_std(X, 'Beta', '2h', center=True)
 
 
 class Classifier(BaseEstimator):
 
     def __init__(self):
-        self.model = LogisticRegression(max_iter=1000)
+        self.model = HistGradientBoostingClassifier(
+            max_iter=1000,
+        )
 
     def fit(self, X, y):
         self.model.fit(X, y)
@@ -27,11 +31,12 @@ class Classifier(BaseEstimator):
 
 def get_estimator():
 
-    feature_extractor = FeatureExtractor()
+    beta_feature_extractor = FeatureExtractor()
+    standard_scaler = StandardScaler()
 
     classifier = Classifier()
 
-    pipe = make_pipeline(feature_extractor, classifier)
+    pipe = make_pipeline(beta_feature_extractor, standard_scaler, classifier)
     return pipe
 
 
